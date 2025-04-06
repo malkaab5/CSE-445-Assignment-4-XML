@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-            xmlns="http://hotels.directory.example/xml" 
-            targetNamespace="http://hotels.directory.example/xml" 
-            elementFormDefault="qualified" 
-            attributeFormDefault="unqualified">
+<!-- defines schema for hotel directory system -->
 
-    <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-            Hotels Directory XML Schema
-        </xsd:documentation>
-    </xsd:annotation>
+<xsd:schema
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://venus.sod.asu.edu/Hotels/xml"
+  targetNamespace="http://venus.sod.asu.edu/Hotels/xml"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
 
-    <!-- root element -->
-    <xsd:element name="Hotels" type="HotelsType"/>
+  <!-- schema documentation -->
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      Schema for hotel directory with address, contact, and airport proximity
+    </xsd:documentation>
+  </xsd:annotation>
 
-    <!-- complex type for Hotels element -->
-    <xsd:complexType name="HotelsType">
-        <xsd:sequence>
-            <xsd:element name="Hotel" type="HotelType" minOccurs="1" maxOccurs="unbounded"/>
-        </xsd:sequence>
-    </xsd:complexType>
-    
-    <!-- complex type for Hotel element -->
-    <xsd:complexType name="HotelType">
-        <xsd:sequence>
-            <xsd:element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="Phone" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-            <xsd:element name="Address" type="AddressType" minOccurs="1" maxOccurs="1"/>
-        </xsd:sequence>
-        <!-- optional rating attribute -->
-        <xsd:attribute name="Rating" type="xsd:decimal" use="optional"/>
-        <!-- required nearest airport attribute -->
-        <xsd:attribute name="NearestAirport" type="xsd:string" use="required"/>
-    </xsd:complexType>
-    
-    <!-- complex type for Address element -->
-    <xsd:complexType name="AddressType">
-        <xsd:sequence>
-            <xsd:element name="Number" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="Street" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="City" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="State" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="Zip" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-        </xsd:sequence>
-    </xsd:complexType>
-    
-    
+  <!-- root element -->
+  <xsd:element name="Hotels" type="HotelsType"/>
+
+  <!-- HotelsType: contains multiple Hotel -->
+  <xsd:complexType name="HotelsType">
+    <xsd:sequence>
+      <xsd:element name="Hotel" type="HotelType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- HotelType: defines one hotel entry -->
+  <xsd:complexType name="HotelType">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Phone" type="xsd:string" maxOccurs="unbounded"/>
+      <xsd:element name="Address" type="AddressType"/>
+      <xsd:element name="NearstAirport" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute name="Rating" type="xsd:decimal" use="optional"/>
+  </xsd:complexType>
+
+  <!-- AddressType: defines hotel's address -->
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element name="Number" type="xsd:string"/>
+      <xsd:element name="Street" type="xsd:string"/>
+      <xsd:element name="City" type="xsd:string"/>
+      <xsd:element name="State" type="xsd:string"/>
+      <xsd:element name="Zip" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
 </xsd:schema>
