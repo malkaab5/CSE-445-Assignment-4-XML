@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Hotels xmlns="http://hotels.directory.example/xml">
-    <!-- first hotel with all required elements -->
-    <Hotel NearestAirport="Sky Harbor" Rating="4.2">
+<!-- valid hotel directory XML instance -->
+
+<Hotels xmlns="http://venus.sod.asu.edu/Hotels/xml">
+    <Hotel Rating="4.2">
         <Name>Westin</Name>
         <Phone>480-968-8885</Phone>
         <Phone>800-937-8461</Phone>
@@ -12,29 +13,60 @@
             <State>AZ</State>
             <Zip>85281</Zip>
         </Address>
+        <NearstAirport>Sky Harbor</NearstAirport>
     </Hotel>
-    <!-- second hotel with all required elements -->
-    <Hotel NearestAirport="Phoenix-Mesa Gateway">
+
+    <Hotel Rating="3.9">
         <Name>Marriott</Name>
-        <Phone>480-345-6789</Phone>
+        <Phone>602-555-1234</Phone>
         <Address>
-            <Number>50</Number>
-            <Street>S. Mill Ave</Street>
+            <Number>22</Number>
+            <Street>Main St</Street>
             <City>Phoenix</City>
             <State>AZ</State>
-            <Zip>85004</Zip>
+            <Zip>85001</Zip>
         </Address>
+        <NearstAirport>Sky Harbor</NearstAirport>
     </Hotel>
-    <!-- third hotel with all required elements -->
-    <Hotel NearestAirport="Tucson International" Rating="3.8">
-        <Name>Hilton</Name>
-        <Phone>520-123-4567</Phone>
+
+    <Hotel Rating="3.8">
+        <Name>Hyatt</Name>
+        <Phone>480-444-9999</Phone>
         <Address>
-            <Number>100</Number>
-            <Street>W. University Dr</Street>
-            <City>Tucson</City>
+            <Number>99</Number>
+            <Street>University Dr</Street>
+            <City>Tempe</City>
             <State>AZ</State>
-            <Zip>85701</Zip>
+            <Zip>85281</Zip>
         </Address>
+        <NearstAirport>Sky Harbor</NearstAirport>
+    </Hotel>
+
+    <Hotel>
+        <!-- testing optional attribute: Rating not provided -->
+        <Name>Hilton</Name>
+        <Phone>480-777-4321</Phone>
+        <Phone>602-123-4567</Phone>
+        <Address>
+            <Number>44</Number>
+            <Street>Broadway Rd</Street>
+            <City>Mesa</City>
+            <State>AZ</State>
+            <Zip>85210</Zip>
+        </Address>
+        <NearstAirport>Sky Harbor</NearstAirport>
+    </Hotel>
+
+    <Hotel Rating="4.0">
+        <Name>DoubleTree</Name>
+        <Phone>623-555-9999</Phone>
+        <Address>
+            <Number>77</Number>
+            <Street>Mill Ave</Street>
+            <City>Tempe</City>
+            <State>AZ</State>
+            <Zip>85281</Zip>
+        </Address>
+        <NearstAirport>Sky Harbor</NearstAirport>
     </Hotel>
 </Hotels>
